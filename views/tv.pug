@@ -3,24 +3,8 @@ extends layout
 block content
   h1= title
   -
-    const results = [
-      { 
-        "brand": "LG",
-        "screen": "OLED",
-        "screen_size": "83in"
-      },
-      { 
-        "brand": "Samsung",
-        "screen": "LED",
-        "screen_size": "65in" 
-      },
-      { 
-        "brand": "Sony",
-        "screen": "LED",
-        "screen_size": "75in"
-      }
-    ]
-  each item in results
+    let items = results
+  each item in items
     div(class = "container-fluid")
       div(class = "row")
         div(class = "col-sm-2") #{item.brand} #{item.screen} #{item.screen_size}

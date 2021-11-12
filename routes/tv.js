@@ -1,9 +1,7 @@
 var express = require('express');
+const tv_controlers= require('../controllers/tv'); 
 var router = express.Router();
 
-/* GET tv page. */
-router.get('/', function(req, res, next) {
-  res.render('tv', { title: 'Search Results' });
-});
-
-module.exports = router;
+/* GET TVs */ 
+router.get('/', tv_controlers.tv_view_all_Page); 
+module.exports = router; 
