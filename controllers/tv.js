@@ -52,8 +52,25 @@ exports.tv_delete = function(req, res) {
 }; 
  
 // Handle tv update form on PUT. 
-exports.tv_update_put = function(req, res) { 
-    res.send('NOT IMPLEMENTED: tv update PUT' + req.params.id); 
+exports.tv_update_put = async function(req, res) { 
+    console.log(`update on id ${req.params.id} with body 
+${JSON.stringify(req.body)}`) 
+    try { 
+        let toUpdate = await tv.findById( req.params.id) 
+        // Do updates of properties 
+        if(req.body.brand)  
+            toUpdate.brand = req.body.brand; 
+        if(req.body.screen)
+            toUpdate.screen = req.body.screen; 
+        if(req.body.screen_size)
+            toUpdate.screen_size = req.body.screen_size; 
+        let result = await toUpdate.save(); 
+        console.log("Success " + result) 
+        res.send(result) 
+    } catch (err) { 
+        res.status(500) 
+        res.send(`{"error": ${err}: Update for id ${req.params.id} failed`); 
+    } 
 }; 
 
 // VIEWS 
