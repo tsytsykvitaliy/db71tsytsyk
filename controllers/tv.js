@@ -1,8 +1,15 @@
 var tv = require('../models/tvschema'); 
  
-// List of all tv 
-exports.tv_list = function(req, res) { 
-    res.send('NOT IMPLEMENTED: tv list'); 
+// List of all tvs 
+exports.tv_list = async function(req, res) { 
+    try{ 
+        theTVs = await tv.find(); 
+        res.send(theTVs); 
+    } 
+    catch(err){ 
+        res.status(500); 
+        res.send(`{"error": ${err}}`); 
+    }   
 }; 
  
 // for a specific tv
