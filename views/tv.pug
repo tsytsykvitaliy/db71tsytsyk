@@ -2,9 +2,7 @@ extends layout
 
 block content
   h1= title
-  -
-    let items = results
-  each item in items
-    div(class = "container-fluid")
-      div(class = "row")
-        div(class = "col-sm-2") #{item.brand} #{item.screen} #{item.screen_size}
+  - let items = results
+  div(class = "container-fluid")
+    div(class = "row")
+      div(class = "col-sm-2") #{items}

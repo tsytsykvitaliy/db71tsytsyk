@@ -1,5 +1,5 @@
 var express = require('express');
-const tv_controlers= require('../controllers/tv'); 
+const tv_controlers = require('../controllers/tv'); 
 var router = express.Router();
 
 /* GET TVs */ 

@@ -19,8 +19,7 @@ router.post('/tv', tv_controller.tv_create_post);
 router.delete('/tv/:id', tv_controller.tv_delete); 
  
 // PUT request to update tv. 
-router.put('/tv/:id', 
-tv_controller.tv_update_put); 
+router.put('/tv/:id', tv_controller.tv_update_put); 
  
 // GET request for one tv. 
 router.get('/tv/:id', tv_controller.tv_detail); 

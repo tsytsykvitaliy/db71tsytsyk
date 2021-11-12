@@ -36,8 +36,8 @@ exports.tv_update_put = function(req, res) {
 // Handle a show all view 
 exports.tv_view_all_Page = async function(req, res) { 
     try{ 
-        theTVs = await tv.find(); 
-        res.render('TVs', { title: 'TV Search Results', results: theTVs }); 
+        theTV = await tv.find(); 
+        res.render('tv', { title: 'TV Search Results', results: theTV }); 
     } 
     catch(err){ 
         res.status(500); 
