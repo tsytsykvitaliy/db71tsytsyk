@@ -46,10 +46,18 @@ exports.tv_create_post = async function(req, res) {
     }   
 };
  
-// Handle tv delete form on DELETE. 
-exports.tv_delete = function(req, res) { 
-    res.send('NOT IMPLEMENTED: tv delete DELETE ' + req.params.id); 
-}; 
+// Handle tv delete on DELETE. 
+exports.tv_delete = async function(req, res) { 
+    console.log("delete "  + req.params.id) 
+    try { 
+        result = await tv.findByIdAndDelete(req.params.id) 
+        console.log("Removed " + result) 
+        res.send(result) 
+    } catch (err) { 
+        res.status(500) 
+        res.send(`{"error": Error deleting ${err}}`); 
+    } 
+};  
  
 // Handle tv update form on PUT. 
 exports.tv_update_put = async function(req, res) { 
