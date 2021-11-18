@@ -14,4 +14,7 @@ router.get('/create', tv_controlers.tv_create_Page);
 /* GET create update page */ 
 router.get('/update', tv_controlers.tv_update_Page);
 
+/* GET delete tv page */ 
+router.get('/delete', tv_controlers.tv_delete_Page); 
+
 module.exports = router; 
