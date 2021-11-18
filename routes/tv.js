@@ -4,6 +4,11 @@ var router = express.Router();
 
 /* GET TVs */ 
 router.get('/', tv_controlers.tv_view_all_Page); 
+
+/* GET detail tv page */ 
 router.get('/detail', tv_controlers.tv_view_one_Page); 
+
+/* GET create tv page */ 
+router.get('/create', tv_controlers.tv_create_Page); 
 
 module.exports = router; 
