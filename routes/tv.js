@@ -1,6 +1,7 @@
 var express = require('express');
 const tv_controlers = require('../controllers/tv'); 
 var router = express.Router();
+link(rel='stylesheet', href='/stylesheets/tv.css')
 
 /* GET TVs */ 
 router.get('/', tv_controlers.tv_view_all_Page); 

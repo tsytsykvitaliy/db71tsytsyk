@@ -1,0 +1,14 @@
+body {
+    background-color: lavender;
+}
+
+h1 {
+    font: 35px "Arial, Helvetica, sans-serif";
+    padding: 50px;
+    text-decoration: underline;
+}
+
+div {
+    margin: 50px;
+    color: darkslateblue;
+}
