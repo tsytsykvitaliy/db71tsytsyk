@@ -4,11 +4,11 @@ body {
 
 h1 {
     font: 35px "Arial, Helvetica, sans-serif";
-    padding: 50px;
+    padding: 25px;
     text-decoration: underline;
+    text-align: center;
 }
 
 div {
-    margin: 50px;
     color: darkslateblue;
 }
