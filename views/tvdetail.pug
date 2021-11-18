@@ -1,0 +1,22 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let tvid = toShow._id 
+  - let tvbrand = toShow.brand 
+  - let tvscreen = toShow.screen 
+  - let tvscreensize = toShow.screen_size 
+  div 
+    div.row 
+      div(class='tvAttr mr-3') TV ID is: 
+      div #{tvid} 
+    div.row 
+      div(class='tvAttr mr-3') TV Brand is: 
+      div #{tvbrand} 
+    div.row 
+      div(class='tvAttr mr-3') TV Screen Type is: 
+      div #{tvscreen} 
+    div.row 
+      div(class='tvAttr mr-3') TV Screen Size is: 
+      div #{tvscreensize}
