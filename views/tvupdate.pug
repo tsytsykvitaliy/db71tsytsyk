@@ -1,0 +1,43 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let tvid = toShow._id 
+  - let tvbrand = toShow.brand 
+  - let tvscreen = toShow.screen 
+  - let tvscreensize = toShow.screen_size 
+   
+  div.row(class='mb-2') 
+    div.mr-1 ID is 
+    div #{tvid} 
+  - let actionid = "/resource/tv/" + tvid 
+  form(id='TVForm', action= actionid, method="PUT") 
+    div.form-group 
+        label.costumeAttr(for='tvbrand') TV brand 
+        input#costume_type(type='text', name='tvbrand', value= tvbrand ) 
+    div.form-group 
+        label.costumeAttr(for='screen') Screen type 
+        input#size(type='text', name='screen', value= screen ) 
+    div.form-group 
+        label.costumeAttr(for='screensize') Screen size 
+        input#cost(type='text', name='screensize', value= screensize ) 
+    input(type="submit") 
+ 
+  script. 
+    document.forms['TVForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'PUT', 
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Update succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Update failed " + error ) 
+      }); 
+    }); 

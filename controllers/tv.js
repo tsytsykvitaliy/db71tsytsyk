@@ -121,3 +121,17 @@ exports.tv_create_Page =  function(req, res) {
         res.send(`{'error': '${err}'}`); 
     } 
 }; 
+
+// Handle building the view for updating a tv. 
+// query provides the id 
+exports.tv_update_Page =  async function(req, res) { 
+    console.log("update view for item "+req.query.id) 
+    try{ 
+        let result = await tv.findById(req.query.id) 
+        res.render('tvupdate', { title: 'TV Update', toShow: result }); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
+    } 
+};
