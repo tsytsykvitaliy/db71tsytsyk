@@ -1,9 +1,9 @@
 extends layout
 
 block content
-  link(rel='stylesheet', href='/stylesheets/tv.css')
+  link(rel='stylesheet', href='../stylesheets/tv.css' type='text/css')
   h1= title
   - let items = results
   div(class = "container-fluid")
     div(class = "row")
-      div(class = "col-sm-2") #{items} br
+      div(class = "col-sm-2") #{items}
