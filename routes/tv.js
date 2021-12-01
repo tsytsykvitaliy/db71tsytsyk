@@ -11,10 +11,20 @@ router.get('/detail', tv_controlers.tv_view_one_Page);
 /* GET create tv page */ 
 router.get('/create', tv_controlers.tv_create_Page); 
 
-/* GET create update page */ 
-router.get('/update', tv_controlers.tv_update_Page);
-
 /* GET delete tv page */ 
 router.get('/delete', tv_controlers.tv_delete_Page); 
+
+// A little function to check if we have an authorized user and continue on 
+// or redirect to login. 
+const secured = (req, res, next) => { 
+    if (req.user){ 
+      return next(); 
+    } 
+    req.session.returnTo = req.originalUrl; 
+    res.redirect("/login"); 
+} 
+
+/* GET update tv page */ 
+router.get('/update', secured, tv_controlers.tv_update_Page); 
 
 module.exports = router; 
