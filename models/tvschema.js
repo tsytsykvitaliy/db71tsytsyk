@@ -1,6 +1,9 @@
 const mongoose = require("mongoose") 
 const tvSchema = mongoose.Schema({ 
- brand: String, 
+ brand: {
+    type: String,
+    enum: ["Samsung", "Sony", "LG"],
+   }, 
  screen: {
   type: String,
   enum: ["LED", "LCD", "OLED"],
