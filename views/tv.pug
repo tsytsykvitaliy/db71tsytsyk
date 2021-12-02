@@ -3,13 +3,19 @@ extends layout
 block content
   link(rel='stylesheet', href='../stylesheets/tv.css' type='text/css')
   h1= title
+  - let createDest = `dispatch(\"/tv/create\")` 
+  button.btn(class="btn-success m1-1", onclick= createDest) Create a TV
   - let items = results
   div(class = "container-fluid")
     div(class = "row m-1")
       each item in items
-        - let destination = `dispatch(\"/tv/update?id=${item._id}\")` 
+        - let updateDest = `dispatch(\"/tv/update?id=${item._id}\")` 
+        - let detailDest = `dispatch(\"/tv/detail?id=${item._id}\")` 
+        - let deleteDest = `dispatch(\"/tv/delete?id=${item._id}\")` 
         div(class = "col-sm-2") TV: #{item.brand} #{item.screen} #{item.screen_size}
-        button.btn(class="btn-primary ml-1", onclick= destination) Update 
+        button.btn(class="btn-primary m1-1", onclick= updateDest) Update
+        button.btn(class="btn-info m1-1", onclick= detailDest) Details
+        button.btn(class="btn-danger m1-1", onclick= deleteDest) Delete
 
   script. 
     function dispatch(path){ 
